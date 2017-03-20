@@ -17,7 +17,7 @@ set cpo&vim
 command! Beautify :call Uncrustify()
 
 " Get uncrustify config file
-if !exists("g:uncrustify_cfg_file")
+if !filereadable("g:uncrustify_cfg_file")
     if ($UNCRUSTIFY_CONFIG != "")
 	let g:uncrustify_cfg_file=$UNCRUSTIFY_CONFIG
     else
