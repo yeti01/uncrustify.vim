@@ -1,6 +1,6 @@
 " uncrustify.vim
-" Maintainer:	Ulrich Steinmann <usteinmann@gmx.de>
-" Last Change:	2015 Dec 08
+" Maintainer:   Ulrich Steinmann <usteinmann@gmx.de>
+" Last Change:  2015 Dec 08
 
 " Only do this when not done yet for this buffer
 if exists("b:loaded_uncrustify") || !executable("uncrustify")
@@ -19,9 +19,9 @@ command! Beautify :call Uncrustify()
 " Get uncrustify config file
 if !filereadable("g:uncrustify_cfg_file")
     if ($UNCRUSTIFY_CONFIG != "")
-	let g:uncrustify_cfg_file=$UNCRUSTIFY_CONFIG
+        let g:uncrustify_cfg_file=$UNCRUSTIFY_CONFIG
     else
-	let g:uncrustify_cfg_file="$HOME/.uncrustify.cfg"
+        let g:uncrustify_cfg_file="$HOME/.uncrustify.cfg"
     endif
 endif
 
@@ -31,9 +31,9 @@ let g:uncrustify_cfg_file=expand(g:uncrustify_cfg_file, ":p")
 " (http://stackoverflow.com/a/15513829/288089)
 function! Uncrustify()
     if filereadable(g:uncrustify_cfg_file)
-	call Preserve(":silent %!uncrustify -q"
-	    \. " -l " . &filetype
-	    \. " -c " . fnameescape(g:uncrustify_cfg_file))
+        call Preserve(":silent %!uncrustify -q"
+            \. " -l " . &filetype
+            \. " -c " . fnameescape(g:uncrustify_cfg_file))
     else
         echomsg "Missing uncrustify config file."
     endif
@@ -65,4 +65,4 @@ endfunction
 
 let &cpo=s:cpo_save
 unlet s:cpo_save
-" vim:sw=4:ts=8:ff=unix
+" vim:ts=8:sw=4:sts=4:et:ff=unix
